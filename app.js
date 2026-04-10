@@ -7,9 +7,11 @@ import {
   setDoc,
   deleteDoc,
   query,
-  orderBy
+  orderBy,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+// USER
 function getUserId() {
   let id = localStorage.getItem("userId");
   if (!id) {
@@ -19,6 +21,7 @@ function getUserId() {
   return id;
 }
 
+// POPUP
 window.openPopup = (type) => {
   document.getElementById(type + "-popup").classList.remove("hidden");
 };
@@ -27,6 +30,7 @@ window.closePopup = () => {
   document.querySelectorAll(".popup").forEach(p => p.classList.add("hidden"));
 };
 
+// BLUEWALL
 window.addPost = async () => {
   const input = document.getElementById("postInput");
   if (!input.value) return;
@@ -39,6 +43,7 @@ window.addPost = async () => {
   input.value = "";
 };
 
+// RULLANDE TEXT
 let posts = [];
 let index = 0;
 
@@ -56,6 +61,7 @@ setInterval(() => {
   index = (index + 1) % posts.length;
 }, 3000);
 
+// MATCH TOGGLE
 window.toggleAttend = async (matchId, btn) => {
   const userId = getUserId();
   const ref = doc(db, "matches", matchId, "attendees", userId);
@@ -73,10 +79,33 @@ window.toggleAttend = async (matchId, btn) => {
   }
 };
 
+// DAG
 function formatDay(day) {
   return day.toUpperCase();
 }
 
+// AUTO IMPORT MATCHER (körs bara om tomt)
+async function seedMatchesIfEmpty() {
+  const snap = await getDocs(collection(db, "matches"));
+  if (!snap.empty) return;
+
+  const matches = [
+    { team:"Värmdö IF", opponent:"Vaksala SK", time:"17:00", location:"Plan 2", day:"fredag" },
+    { team:"Värmdö IF", opponent:"IBK Köping", time:"18:30", location:"Emausskolan", day:"fredag" },
+
+    { team:"Värmdö IF", opponent:"Falun", time:"09:45", location:"Cernohallen", day:"lördag" },
+    { team:"Värmdö IF", opponent:"Runsten", time:"14:45", location:"Cernohallen", day:"lördag" },
+
+    { team:"Värmdö IF", opponent:"Rönnby", time:"09:15", location:"Cernohallen", day:"söndag" },
+    { team:"Värmdö IF", opponent:"Järfälla", time:"15:15", location:"Cernohallen", day:"söndag" }
+  ];
+
+  for (let m of matches) {
+    await addDoc(collection(db, "matches"), m);
+  }
+}
+
+// HÄMTA MATCHER
 onSnapshot(collection(db, "matches"), (snap) => {
   const container = document.getElementById("timeline");
   container.innerHTML = "";
@@ -136,3 +165,6 @@ onSnapshot(collection(db, "matches"), (snap) => {
     });
   });
 });
+
+// kör auto-import
+seedMatchesIfEmpty();
