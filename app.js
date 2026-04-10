@@ -10,7 +10,6 @@ import {
   orderBy
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// USER
 function getUserId() {
   let id = localStorage.getItem("userId");
   if (!id) {
@@ -20,7 +19,6 @@ function getUserId() {
   return id;
 }
 
-// POPUP
 window.openPopup = (type) => {
   document.getElementById(type + "-popup").classList.remove("hidden");
 };
@@ -29,7 +27,6 @@ window.closePopup = () => {
   document.querySelectorAll(".popup").forEach(p => p.classList.add("hidden"));
 };
 
-// BLUEWALL
 window.addPost = async () => {
   const input = document.getElementById("postInput");
   if (!input.value) return;
@@ -59,7 +56,6 @@ setInterval(() => {
   index = (index + 1) % posts.length;
 }, 3000);
 
-// MATCH
 window.toggleAttend = async (matchId, btn) => {
   const userId = getUserId();
   const ref = doc(db, "matches", matchId, "attendees", userId);
@@ -77,17 +73,10 @@ window.toggleAttend = async (matchId, btn) => {
   }
 };
 
-// DAG
 function formatDay(day) {
-  const map = {
-    fredag: "FREDAG",
-    lördag: "LÖRDAG",
-    söndag: "SÖNDAG"
-  };
-  return map[day] || day;
+  return day.toUpperCase();
 }
 
-// MATCHER
 onSnapshot(collection(db, "matches"), (snap) => {
   const container = document.getElementById("timeline");
   container.innerHTML = "";
@@ -128,9 +117,7 @@ onSnapshot(collection(db, "matches"), (snap) => {
         </div>
 
         <div class="attend-box">
-          <button class="attend-btn" onclick="toggleAttend('${m.id}', this)">
-            ✔
-          </button>
+          <button class="attend-btn" onclick="toggleAttend('${m.id}', this)">✔</button>
           <div class="attend-count">
             <span id="count-${m.id}">0</span>
             <div class="attend-label">Ska se matchen live</div>
