@@ -9,31 +9,28 @@
 <body>
 
 <div class="topbar">
-  <h2>🐋 Bluewhales on Tour</h2>
-  <div>
-    <button onclick="openPopup('bluewall')">💬</button>
-    <button onclick="openPopup('rides')">🚗</button>
-  </div>
+  <div class="logo">🐋 Bluewhales</div>
 </div>
 
+<!-- BLUEWALL PREVIEW -->
+<div class="bluewall-preview" onclick="openPopup('bluewall')">
+  <div id="bluewallPreview">Inga inlägg än...</div>
+  <div>✏️</div>
+</div>
+
+<!-- MATCHER -->
 <div id="timeline"></div>
 
-<!-- BLUEWALL -->
+<!-- POPUP -->
 <div id="bluewall-popup" class="popup hidden">
   <div class="popup-content">
-    <h3>💬 Bluewall</h3>
+    <h2>💬 Bluewall</h2>
+
     <textarea id="postInput" placeholder="Skriv något..."></textarea>
     <button onclick="addPost()">Posta</button>
-    <div id="posts"></div>
-    <button onclick="closePopup()">Stäng</button>
-  </div>
-</div>
 
-<!-- SKJUTS -->
-<div id="rides-popup" class="popup hidden">
-  <div class="popup-content">
-    <h3>🚗 Skjuts</h3>
-    <p>Kommer snart...</p>
+    <div id="posts"></div>
+
     <button onclick="closePopup()">Stäng</button>
   </div>
 </div>
