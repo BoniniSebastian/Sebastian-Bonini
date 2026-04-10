@@ -20,7 +20,18 @@ body::before {
 /* TOP */
 .topbar {
   padding: 15px;
+}
+
+.logo {
   font-weight: bold;
+}
+
+.top-link {
+  display:block;
+  margin-top:5px;
+  font-size:13px;
+  color:white;
+  text-decoration:underline;
 }
 
 /* BLUEWALL */
@@ -37,11 +48,11 @@ body::before {
   backdrop-filter: blur(12px);
 }
 
-/* MATCHER */
+/* MATCH */
 .match-card {
   margin: 10px;
-  padding: 12px;
-  border-radius: 16px;
+  padding: 14px;
+  border-radius: 20px;
 
   display:flex;
   justify-content:space-between;
@@ -61,12 +72,14 @@ body::before {
   opacity:0.8;
 }
 
-.attending {
-  font-size:12px;
-  margin-top:5px;
+/* ATTEND */
+.attend-box {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
 }
 
-/* NEON KNAPP */
 .attend-btn {
   width:45px;
   height:45px;
@@ -80,6 +93,16 @@ body::before {
     0 0 5px #00ff88,
     0 0 10px #00ff88,
     0 0 20px #00ff88;
+}
+
+.attend-count {
+  text-align:center;
+  font-size:12px;
+}
+
+.attend-label {
+  font-size:10px;
+  opacity:0.7;
 }
 
 /* DAG */
@@ -112,8 +135,24 @@ body::before {
   display:none;
 }
 
+/* TEXTAREA */
 textarea {
   width:100%;
   height:80px;
   margin:10px 0;
+}
+
+/* BUTTONS FIX */
+.popup-buttons {
+  display:flex;
+  gap:10px;
+}
+
+.popup-buttons button {
+  flex:1;
+  padding:12px;
+  background:black;
+  color:white;
+  border:none;
+  border-radius:10px;
 }
