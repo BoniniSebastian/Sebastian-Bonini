@@ -9,8 +9,11 @@
 <body>
 
 <div class="topbar">
-  <button onclick="openPopup('bluewall')">💬 Bluewall</button>
-  <button onclick="openPopup('rides')">🚗 Skjuts</button>
+  <h2>🐋 Bluewhales on Tour</h2>
+  <div>
+    <button onclick="openPopup('bluewall')">💬</button>
+    <button onclick="openPopup('rides')">🚗</button>
+  </div>
 </div>
 
 <div id="timeline"></div>
@@ -18,7 +21,7 @@
 <!-- BLUEWALL -->
 <div id="bluewall-popup" class="popup hidden">
   <div class="popup-content">
-    <h3>Bluewall</h3>
+    <h3>💬 Bluewall</h3>
     <textarea id="postInput" placeholder="Skriv något..."></textarea>
     <button onclick="addPost()">Posta</button>
     <div id="posts"></div>
@@ -29,8 +32,8 @@
 <!-- SKJUTS -->
 <div id="rides-popup" class="popup hidden">
   <div class="popup-content">
-    <h3>Skjuts</h3>
-    <div id="rides"></div>
+    <h3>🚗 Skjuts</h3>
+    <p>Kommer snart...</p>
     <button onclick="closePopup()">Stäng</button>
   </div>
 </div>
