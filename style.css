@@ -11,37 +11,39 @@ body {
   color: white;
 }
 
-/* VIDEO SEKTION */
+/* HERO (VIKTIGT) */
 .hero {
   width: 100%;
-  height: 58vh; /* 🔥 justerad för bättre match */
+  height: 65vh; /* 🔥 högre = mer av kroppen syns */
   overflow: hidden;
+  display: flex;
+  align-items: flex-end; /* 🔥 trycker ner videon */
+  justify-content: center;
 }
 
+/* VIDEO (KRITISK DEL) */
 #hero-video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto; /* 🔥 istället för 100% */
+  max-height: none;
 
-  /* 🔥 POSITION (flyttar upp ansiktet) */
-  object-position: center 10%;
+  object-fit: contain; /* 🔥 visar hela videon */
 }
 
-/* TEXT SEKTION */
+/* TEXT */
 .info {
-  padding: 30px 20px 40px; /* 🔥 mindre padding = flyttar upp */
+  padding: 20px 20px 30px; /* 🔥 flyttar upp */
 }
 
 /* RUBRIKER */
 h1 {
   font-size: 54px;
   font-weight: 700;
-  letter-spacing: 1px;
 }
 
 h2 {
   font-size: 26px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 /* NAV */
@@ -63,10 +65,10 @@ nav a:hover {
   opacity: 1;
 }
 
-/* MOBIL FINJUSTERING */
+/* MOBIL */
 @media (max-width: 600px) {
   .hero {
-    height: 55vh;
+    height: 60vh;
   }
 
   h1 {
@@ -75,9 +77,5 @@ nav a:hover {
 
   h2 {
     font-size: 22px;
-  }
-
-  nav {
-    gap: 18px;
   }
 }
