@@ -7,64 +7,44 @@
 }
 
 body {
-  height: 100vh;
-  overflow: hidden;
+  background: black;
   color: white;
 }
 
-/* VIDEO BACKGROUND */
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* VIDEO TOPP */
+.hero {
+  width: 100%;
+  height: 55vh; /* 🔥 justera höjd här */
+  overflow: hidden;
+  position: relative;
+}
+
+#hero-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 
-  /* 🔥 JUSTERA DENNA för att flytta upp/ner */
+  /* 🔥 flytta videon upp/ner */
   object-position: center 30%;
-
-  z-index: -2;
 }
 
-/* MÖRK OVERLAY + FADE I BOTTEN */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.95) 0%,
-    rgba(0,0,0,0.7) 40%,
-    rgba(0,0,0,0.4) 70%,
-    rgba(0,0,0,0.2) 100%
-  );
-  z-index: -1;
-}
-
-/* CONTENT POSITION (vänster + nedre del som din design) */
-.content {
-  position: absolute;
-  bottom: 140px;
-  left: 20px;
+/* TEXT SEKTION */
+.info {
+  padding: 40px 20px 60px;
 }
 
 /* RUBRIKER */
 h1 {
   font-size: 52px;
   font-weight: 700;
-  letter-spacing: 1px;
 }
 
 h2 {
   font-size: 26px;
-  margin-bottom: 30px;
-  font-weight: 600;
+  margin-bottom: 40px;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -83,21 +63,17 @@ nav a:hover {
   opacity: 1;
 }
 
-/* MOBIL FINJUSTERING */
+/* MOBIL */
 @media (max-width: 600px) {
+  .hero {
+    height: 50vh;
+  }
+
   h1 {
     font-size: 44px;
   }
 
   h2 {
     font-size: 22px;
-  }
-
-  nav {
-    gap: 18px;
-  }
-
-  .content {
-    bottom: 120px;
   }
 }
