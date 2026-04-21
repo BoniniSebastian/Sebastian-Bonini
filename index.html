@@ -1,45 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bluewhales on Tour</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sebastian Bonini</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<div class="topbar">
-  <div class="logo">🐋 Bluewhales on Tour</div>
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="video.mp4" type="video/mp4">
+  </video>
 
-  <a href="https://malarenergicup.vib.se/2026,sv/result/clubs/73836758"
-     target="_blank"
-     class="top-link">
-     Länk Mälarenergi
-  </a>
-</div>
+  <!-- OVERLAY -->
+  <div class="overlay"></div>
 
-<div class="bluewall-preview" onclick="openPopup('bluewall')">
-  <div id="bluewallPreview">Inga inlägg än...</div>
-  <div>✏️</div>
-</div>
+  <!-- CONTENT -->
+  <div class="content">
+    <h1>SEBASTIAN</h1>
+    <h2>BONINI</h2>
 
-<div id="timeline"></div>
-
-<div id="bluewall-popup" class="popup hidden">
-  <div class="popup-content">
-    <h2>💬 Bluewall</h2>
-
-    <textarea id="postInput"></textarea>
-
-    <div class="popup-buttons">
-      <button onclick="addPost()">Posta</button>
-      <button onclick="closePopup()">Stäng</button>
-    </div>
-
-    <div id="posts"></div>
+    <nav>
+      <a href="#">OM MIG</a>
+      <a href="#">SAKER JAG GÖR</a>
+      <a href="#">FOTOLÄNKAR</a>
+      <a href="#">KONTAKT</a>
+    </nav>
   </div>
-</div>
 
-<script type="module" src="app.js"></script>
 </body>
 </html>
