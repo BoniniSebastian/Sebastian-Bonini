@@ -26,10 +26,14 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
+
+  min-width: 100%;
+  min-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  transform: translate(-50%, -60%);
   
   /* 🔥 justera denna om ansiktet hamnar fel */
   object-position: 50% 15%;
