@@ -8,40 +8,49 @@
 </head>
 <body>
 
+  <!-- TOP RIGHT CONTACT -->
+  <a href="#" class="contact-top">KONTAKT</a>
+
   <section class="hero">
     
+    <!-- VIDEO -->
     <video autoplay muted loop playsinline id="hero-video">
       <source src="video.mp4" type="video/mp4">
     </video>
 
+    <!-- OVERLAY -->
     <div class="overlay"></div>
 
+    <!-- TEXT -->
     <div class="hero-content">
-      <h1>SEBASTIAN</h1>
+      <h1 id="title">SEBASTIAN</h1>
       <h2>BONINI</h2>
 
       <nav>
         <a href="#">OM MIG</a>
         <a href="#">SAKER JAG GÖR</a>
         <a href="#">FOTOLÄNKAR</a>
-        <a href="#">KONTAKT</a>
       </nav>
     </div>
 
   </section>
 
-  <!-- 🔥 VIKTIG -->
+  <!-- EXTRA SCROLL SECTION -->
+  <section class="next-section"></section>
+
+  <!-- SCROLL EFFECT -->
   <script>
-    const heroContent = document.querySelector(".hero-content");
+    const title = document.getElementById("title");
 
     window.addEventListener("scroll", () => {
       const scroll = window.scrollY;
 
-      const scale = 1 + scroll * 0.0005;
-      const opacity = 1 - scroll * 0.001;
+      // subtil Apple-style effekt
+      const scale = 1 + scroll * 0.0004;
+      const y = scroll * 0.2;
 
-      heroContent.style.transform = `scale(${scale})`;
-      heroContent.style.opacity = Math.max(opacity, 0.6);
+      title.style.transform = `translateY(${y}px) scale(${scale})`;
+      title.style.opacity = 1 - scroll * 0.001;
     });
   </script>
 
