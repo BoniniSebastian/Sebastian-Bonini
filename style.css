@@ -117,6 +117,8 @@ nav a:hover {
     width: auto;
     height: auto;
 
+    object-fit: cover;
+
     transform: translate(-50%, -52%) scale(0.75);
   }
 }
