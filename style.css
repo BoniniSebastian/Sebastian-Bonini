@@ -33,13 +33,11 @@ body {
   width: auto;
   height: auto;
 
-  transform: translate(-50%, -60%);
-  
-  /* 🔥 justera denna om ansiktet hamnar fel */
-  object-position: 50% 15%;
+  /* 🔥 position + scale fix */
+  transform: translate(-50%, -60%) scale(0.75);
 }
 
-/* OVERLAY (cinematic look) */
+/* OVERLAY */
 .overlay {
   position: absolute;
   width: 100%;
@@ -110,7 +108,7 @@ nav a:hover {
 @media (max-width: 768px) {
 
   #hero-video {
-    object-position: 50% 25%;
+    transform: translate(-50%, -50%) scale(0.85);
   }
 
   .hero-content {
