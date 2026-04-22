@@ -37,6 +37,16 @@ body {
   transform: translate(-50%, -65%) scale(0.6);
 }
 
+.hero-content {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  z-index: 2;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform-origin: left bottom;
+}
+
 /* OVERLAY */
 .overlay {
   position: absolute;
