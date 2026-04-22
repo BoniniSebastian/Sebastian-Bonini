@@ -5,6 +5,22 @@
   box-sizing: border-box;
 }
 
+
+<script>
+  const heroContent = document.querySelector(".hero-content");
+
+  window.addEventListener("scroll", () => {
+    const scroll = window.scrollY;
+
+    // hur mycket effekt (justera här)
+    const scale = 1 + scroll * 0.0005;
+    const opacity = 1 - scroll * 0.001;
+
+    heroContent.style.transform = `scale(${scale})`;
+    heroContent.style.opacity = Math.max(opacity, 0.6);
+  });
+</script>
+    
 /* BODY */
 body {
   background: black;
