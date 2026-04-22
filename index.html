@@ -10,15 +10,12 @@
 
   <section class="hero">
     
-    <!-- VIDEO -->
     <video autoplay muted loop playsinline id="hero-video">
       <source src="video.mp4" type="video/mp4">
     </video>
 
-    <!-- OVERLAY -->
     <div class="overlay"></div>
 
-    <!-- TEXT -->
     <div class="hero-content">
       <h1>SEBASTIAN</h1>
       <h2>BONINI</h2>
@@ -32,6 +29,21 @@
     </div>
 
   </section>
+
+  <!-- 🔥 VIKTIG -->
+  <script>
+    const heroContent = document.querySelector(".hero-content");
+
+    window.addEventListener("scroll", () => {
+      const scroll = window.scrollY;
+
+      const scale = 1 + scroll * 0.0005;
+      const opacity = 1 - scroll * 0.001;
+
+      heroContent.style.transform = `scale(${scale})`;
+      heroContent.style.opacity = Math.max(opacity, 0.6);
+    });
+  </script>
 
 </body>
 </html>
