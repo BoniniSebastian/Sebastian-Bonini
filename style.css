@@ -3,50 +3,75 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
+/* BODY */
 body {
   background: black;
   color: white;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* HERO (VIKTIGT) */
+/* HERO */
 .hero {
   position: relative;
   width: 100%;
-  height: 65vh;
+  height: 100vh;
   overflow: hidden;
   background: black;
 }
 
-/* 🔥 FIXAD VIDEO */
+/* VIDEO */
 #hero-video {
   position: absolute;
   top: 50%;
   left: 50%;
-
   width: 100%;
   height: 100%;
-
-  object-fit: cover; /* 🔥 viktigaste */
+  object-fit: cover;
   transform: translate(-50%, -50%);
+  
+  /* 🔥 justera denna om ansiktet hamnar fel */
+  object-position: 50% 15%;
 }
 
-/* TEXT */
-.info {
-  padding: 20px 20px 30px; /* 🔥 flyttar upp */
+/* OVERLAY (cinematic look) */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.85)
+  );
+  z-index: 1;
 }
 
-/* RUBRIKER */
+/* CONTENT */
+.hero-content {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  z-index: 2;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+/* TYPOGRAFI */
 h1 {
-  font-size: 54px;
+  font-size: clamp(40px, 6vw, 80px);
   font-weight: 700;
+  letter-spacing: -1px;
 }
 
 h2 {
-  font-size: 26px;
+  font-size: clamp(18px, 2vw, 28px);
   margin-bottom: 25px;
+  opacity: 0.85;
 }
 
 /* NAV */
@@ -54,31 +79,46 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
-  max-width: 320px;
+  max-width: 400px;
 }
 
 nav a {
   text-decoration: none;
   color: white;
   font-size: 18px;
-  opacity: 0.85;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
 nav a:hover {
   opacity: 1;
 }
 
-/* MOBIL */
-@media (max-width: 600px) {
-  .hero {
-    height: 60vh;
+/* ANIMATION */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 MOBIL */
+@media (max-width: 768px) {
+
+  #hero-video {
+    object-position: 50% 25%;
   }
 
-  h1 {
-    font-size: 46px;
+  .hero-content {
+    left: 20px;
+    bottom: 6%;
   }
 
-  h2 {
-    font-size: 22px;
+  nav {
+    gap: 18px;
+  }
+
+  nav a {
+    font-size: 16px;
   }
 }
