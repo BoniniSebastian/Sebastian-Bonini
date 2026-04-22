@@ -33,8 +33,8 @@ body {
   width: auto;
   height: auto;
 
-  /* 🔥 position + scale fix */
-  transform: translate(-50%, -60%) scale(0.75);
+  /* 🔥 justerad för din nya video */
+  transform: translate(-50%, -65%) scale(0.6);
 }
 
 /* OVERLAY */
@@ -106,21 +106,17 @@ nav a:hover {
 
 /* 📱 MOBIL */
 @media (max-width: 768px) {
-
   #hero-video {
-    transform: translate(-50%, -50%) scale(0.85);
-  }
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  .hero-content {
-    left: 20px;
-    bottom: 6%;
-  }
+    min-width: 100%;
+    min-height: 100%;
 
-  nav {
-    gap: 18px;
-  }
+    width: auto;
+    height: auto;
 
-  nav a {
-    font-size: 16px;
+    transform: translate(-50%, -52%) scale(0.75);
   }
 }
